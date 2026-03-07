@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eligibility Checker – Which Government Scheme Am I Eligible For?</title>
+  <meta name="description" content="Find out which Indian government schemes you are eligible for. Answer simple questions about your income, occupation, and family details to get a personalised scheme list.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Eligibility Checker – Which Government Scheme Am I Eligible For?">
+  <meta property="og:description" content="Find out which Indian government schemes you are eligible for. Answer simple questions about your income, occupation, and family details to get a personalised scheme list.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://govschemeassistant.in/eligibility.html">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+<div class="announce-bar">
+  ⚠️ This is an independent information website. NOT affiliated with any government. 
+  For official applications, visit <strong>.gov.in</strong> websites.
+</div>
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Government Scheme Assistant India Home">
+      <div class="nav-logo-icon">🇮🇳</div>
+      <div class="nav-logo-text">
+        Scheme Assistant India
+        <span>Independent Information Service</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="eligibility.html">Eligibility Checker</a></li>
+      <li class="has-dropdown">
+        <a href="#">Schemes ▾</a>
+        <div class="dropdown">
+          <span class="dropdown-cat">Agriculture</span>
+          <a href="schemes/pm-kisan.html">PM Kisan Samman Nidhi</a>
+          <a href="schemes/pmfby.html">PM Fasal Bima Yojana</a>
+          <a href="schemes/pm-kusum.html">PM Kusum Yojana</a>
+          <a href="schemes/soil-health-card.html">Soil Health Card</a>
+          <span class="dropdown-cat">Housing &amp; Health</span>
+          <a href="schemes/pm-awas.html">PM Awas Yojana</a>
+          <a href="schemes/clss.html">Credit Linked Subsidy</a>
+          <a href="schemes/ayushman-bharat.html">Ayushman Bharat</a>
+          <a href="schemes/janani-suraksha.html">Janani Suraksha Yojana</a>
+          <span class="dropdown-cat">Education &amp; Women</span>
+          <a href="schemes/nsp.html">National Scholarship Portal</a>
+          <a href="schemes/vidya-lakshmi.html">PM Vidya Lakshmi</a>
+          <a href="schemes/beti-bachao.html">Beti Bachao Beti Padhao</a>
+          <span class="dropdown-cat">Business &amp; Employment</span>
+          <a href="schemes/mudra-yojana.html">PM Mudra Yojana</a>
+          <a href="schemes/startup-india.html">Startup India</a>
+          <a href="schemes/standup-india.html">Stand Up India</a>
+          <a href="schemes/pmkvy.html">PM Kaushal Vikas Yojana</a>
+          <a href="schemes/mgnrega.html">MGNREGA</a>
+          <span class="dropdown-cat">Insurance &amp; Pension</span>
+          <a href="schemes/pmjjby.html">PM Jeevan Jyoti Bima</a>
+          <a href="schemes/pmsby.html">PM Suraksha Bima</a>
+          <a href="schemes/atal-pension.html">Atal Pension Yojana</a>
+          <a href="schemes/jan-dhan.html">PM Jan Dhan Yojana</a>
+        </div>
+      </li>
+      <li><a href="documents.html">Documents Guide</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="navSearch" placeholder="Search schemes…" autocomplete="off" aria-label="Search schemes">
+      <div class="search-results" id="navResults"></div>
+    </div>
+    <button class="lang-toggle" id="langToggle" aria-label="Toggle language">हिन्दी</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar"><a href="index.html">Home</a> <span>›</span> Eligibility Checker</div>
+<div class="page-banner">
+  <h1>Eligibility Checker</h1>
+  <p>Find out which government schemes you may be eligible for based on your situation.</p>
+</div>
+<main class="page-wrap">
+  <div class="info-box blue">
+    <strong>📌 Please Note</strong>
+    This is a general guidance tool only. Actual eligibility is determined by the government. Always verify on the official government website before applying.
+  </div>
+
+  <h2>Quick Eligibility Checker</h2>
+  <div class="elig-tool">
+    <div class="elig-tool-header"><h3>Tell us about yourself</h3></div>
+    <div class="elig-tool-body">
+      <form id="eligForm" novalidate>
+        <div class="elig-question">
+          <label for="eligOcc">What is your main occupation?</label>
+          <select id="eligOcc" required>
+            <option value="">— Select —</option>
+            <option value="farmer">Farmer / Agriculture Worker</option>
+            <option value="business">Small Business Owner / Self-Employed</option>
+            <option value="worker">Daily Wage Worker / Labour</option>
+            <option value="salaried">Salaried Employee</option>
+            <option value="student">Student</option>
+            <option value="unemployed">Unemployed / Job Seeker</option>
+            <option value="any">Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="elig-question">
+          <label for="eligInc">Annual household income (₹)</label>
+          <select id="eligInc">
+            <option value="100000">Below ₹1 lakh</option>
+            <option value="300000">₹1 – 3 lakh</option>
+            <option value="600000">₹3 – 6 lakh</option>
+            <option value="1200000">₹6 – 12 lakh</option>
+            <option value="1800000">₹12 – 18 lakh</option>
+            <option value="9999999">Above ₹18 lakh</option>
+          </select>
+        </div>
+        <div class="elig-question">
+          <label for="eligArea">Where do you live?</label>
+          <select id="eligArea">
+            <option value="rural">Rural (Village / Gram Panchayat area)</option>
+            <option value="urban">Urban (City / Town)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+          ✅ Show Matching Schemes
+        </button>
+      </form>
+      <div class="elig-result" id="eligResult"></div>
+    </div>
+  </div>
+
+  <h2>Eligibility by Income Category</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Annual Family Income</th><th>Schemes You May Qualify For</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Below ₹1 lakh (EWS)</strong></td><td>Ayushman Bharat, PMAY Rural, MGNREGA, PM Jan Dhan, PM Suraksha Bima, Janani Suraksha Yojana</td></tr>
+        <tr><td><strong>₹1 – 3 lakh (LIG)</strong></td><td>PMAY Urban LIG, Credit Linked Subsidy, PM Mudra (Shishu), Ayushman Bharat, NSP Scholarships</td></tr>
+        <tr><td><strong>₹3 – 6 lakh (MIG-I)</strong></td><td>PMAY Urban MIG-I, CLSS MIG-I, PM Mudra (Kishor), Atal Pension Yojana</td></tr>
+        <tr><td><strong>₹6 – 12 lakh (MIG-II)</strong></td><td>PMAY Urban MIG-II, CLSS MIG-II, PM Mudra (Tarun), Startup India</td></tr>
+        <tr><td><strong>All income levels</strong></td><td>PM Kaushal Vikas Yojana, Soil Health Card, Stand Up India (SC/ST/Women), PM Jan Dhan Yojana</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Eligibility by Occupation</h2>
+
+  <h3>🌾 If You Are a Farmer</h3>
+  <p>PM Kisan Samman Nidhi, Pradhan Mantri Fasal Bima Yojana, PM Kusum Yojana, Soil Health Card Scheme. <strong>Key requirement:</strong> Agricultural land ownership and Aadhaar-linked bank account.</p>
+
+  <h3>💼 If You Run a Small Business</h3>
+  <p>Pradhan Mantri Mudra Yojana, Startup India, Stand Up India, PM Kaushal Vikas Yojana.</p>
+
+  <h3>👷 If You Are Unemployed or in Daily Wage Work</h3>
+  <p>PM Kaushal Vikas Yojana (free training), MGNREGA (100 days paid work for rural households), PM Jan Dhan Yojana.</p>
+
+  <h2>Common Documents Needed for Most Schemes</h2>
+  <ul>
+    <li>Aadhaar Card (mandatory for almost all central schemes)</li>
+    <li>Bank account linked to Aadhaar (for Direct Benefit Transfer)</li>
+    <li>Income certificate from a government authority</li>
+    <li>Residence proof (voter ID, ration card, utility bill)</li>
+    <li>Passport-size photographs</li>
+    <li>Mobile number registered with Aadhaar</li>
+  </ul>
+  <a href="documents.html" class="btn btn-outline" style="margin-top:8px;">📄 Full Documents Guide →</a>
+</main>
+
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">🇮🇳 Government Scheme Assistant India</div>
+        <p>An independent informational platform helping Indian citizens understand and access government schemes. We are NOT affiliated with any government authority.</p>
+        <div class="not-govt-badge">⚠️ Not a Government Website</div>
+      </div>
+      <div>
+        <h4>Main Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="eligibility.html">Eligibility Checker</a></li>
+          <li><a href="documents.html">Documents Guide</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Agriculture</h4>
+        <ul>
+          <li><a href="schemes/pm-kisan.html">PM Kisan</a></li>
+          <li><a href="schemes/pmfby.html">Fasal Bima</a></li>
+          <li><a href="schemes/pm-kusum.html">PM Kusum</a></li>
+          <li><a href="schemes/soil-health-card.html">Soil Health Card</a></li>
+        </ul>
+        <h4 style="margin-top:16px">Housing & Health</h4>
+        <ul>
+          <li><a href="schemes/pm-awas.html">PM Awas Yojana</a></li>
+          <li><a href="schemes/ayushman-bharat.html">Ayushman Bharat</a></li>
+          <li><a href="schemes/janani-suraksha.html">Janani Suraksha</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business & Finance</h4>
+        <ul>
+          <li><a href="schemes/mudra-yojana.html">Mudra Yojana</a></li>
+          <li><a href="schemes/startup-india.html">Startup India</a></li>
+          <li><a href="schemes/jan-dhan.html">Jan Dhan Yojana</a></li>
+          <li><a href="schemes/pmkvy.html">Kaushal Vikas</a></li>
+          <li><a href="schemes/mgnrega.html">MGNREGA</a></li>
+          <li><a href="schemes/atal-pension.html">Atal Pension</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <strong style="color:rgba(255,255,255,.6);">⚠️ DISCLAIMER:</strong> This website is an independent informational service and is NOT affiliated with the Government of India, any state government, ministry, or government department. All information is provided for educational purposes only. Always verify details on official government portals (.gov.in) before applying. We do not process applications, charge fees, or guarantee scheme approval. Information may not reflect the latest government updates.<br><br>
+      <a href="disclaimer.html">Full Disclaimer</a> · <a href="about.html">About Us</a> · <a href="contact.html">Report an Error</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Government Scheme Assistant India. All rights reserved.</span>
+      <span>Independent · Free · No Government Affiliation</span>
+    </div>
+  </div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+<script src="main.js"></script>
+</body>
+</html>
